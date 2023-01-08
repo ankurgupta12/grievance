@@ -1,0 +1,83 @@
+<header class="header-text">GRIEVANCE SUBMISSION</header>
+<div class="container">
+    <div>
+    <p> Resolve Common issues by viewing FAQs </p>
+    <button  class="btn-submit-form" mat-flat-button  >VIEW GRIEVANCE FAQ</button>
+</div>
+    <span>
+        Need further help? Submit your grievance below
+    </span>
+    <div>
+        <form [formGroup]="grivanceSubmitForm">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row">
+                  <label class="col-md-4 col-form-label">Grievance Category*</label>
+                  <div class="col-md-8 align-items-center d-flex">
+                    <mat-form-field  class="form-field">
+                        <mat-label>Select From Menu</mat-label>
+                        <mat-select formControlName="category">
+                          <mat-option value="one">First option</mat-option>
+                          <mat-option value="two">Second option</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+        
+                    <!-- *ngIf="saveCriteriaForm.get('searchName').errors?.maxlength"  -->
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row">
+                  <label class="col-md-4 col-form-label"
+                    >Grievance Details*</label
+                  >
+                  <div class="col-md-8 align-items-center d-flex">
+                    <mat-form-field  class="form-field">
+                      <input
+                        matInput
+                        formControlName="detail"
+                        [maxLength]="150"
+                        autocomplete="off"
+                        name="cName"
+                        placeholder="Enter Text Up To 1000 Words"
+                      />
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row">
+                  <label class="col-md-4 col-form-label">Upload Documents</label>
+                  <div class="col-md-8 align-items-center d-flex">
+                    <ng-container formArrayName="docs">
+                        <ng-container *ngFor="let doc of docs.controls; let i = index">
+                          <div class="row" [formGroupName]="i">
+                           
+                        
+                              <input
+                                type="file"
+                                (change)="upload($event, i)"
+                                accept=".pdf"
+                                class="form-control"
+                              />
+                            
+                           
+                          </div>
+                        </ng-container>
+                      </ng-container>
+                  </div>
+                </div>
+              </div>
+            </div>
+         
+           
+          </form>
+          <button  class="btn-submit-form" mat-flat-button (click)="addDoc()" color="primary">+ Add Entry</button>
+    </div>
+   
+</div>
