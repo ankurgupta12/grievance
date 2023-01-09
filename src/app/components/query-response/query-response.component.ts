@@ -41,7 +41,7 @@ public grivanceForm:FormGroup;
     this.docs.push(docForm);
   }
 
-  public upload(event: any, index: number): void {
+  public upload(event: any, index?: number): void {
     let fileName = event.target.files[0].name;
     this.docs.controls[index].patchValue({ file: fileName });
   }
