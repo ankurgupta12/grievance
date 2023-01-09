@@ -1,38 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from "@angular/core";
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-grievance-submit',
-  templateUrl: './grievance-submit.component.html',
-  styleUrls: ['./grievance-submit.component.scss']
+  selector: "app-grievance-submit",
+  templateUrl: "./grievance-submit.component.html",
+  styleUrls: ["./grievance-submit.component.scss"],
 })
 export class GrievanceSubmitComponent implements OnInit {
   public grivanceSubmitForm: FormGroup;
-  constructor(public fb:FormBuilder) { }
+  constructor(public fb: FormBuilder, public router: Router) {}
 
   ngOnInit(): void {
     this.grivanceSubmitForm = new FormGroup({
       category: new FormControl(null, [Validators.required]),
-      detail: new FormControl("",[Validators.required]),
-      docs: this.fb.array([{ file: [''],}]),
-     
+      detail: new FormControl("", [Validators.required]),
+      docs: this.fb.array([{ file: [""] }]),
     });
   }
   public submitForm(): void {
-   
     if (this.grivanceSubmitForm.valid) {
       // this.isSubmit = true;
       console.log(this.grivanceSubmitForm.value);
     }
-   
   }
   get docs() {
-    return this.grivanceSubmitForm.controls['docs'] as FormArray;
+    return this.grivanceSubmitForm.controls["docs"] as FormArray;
   }
 
-  public addDoc():void {
+  public addDoc(): void {
     const docForm = this.fb.group({
-      file: [''],
+      file: [""],
     });
     this.docs.push(docForm);
   }
@@ -40,5 +44,8 @@ export class GrievanceSubmitComponent implements OnInit {
   public upload(event: any, index: number): void {
     let fileName = event.target.files[0].name;
     this.docs.controls[index].patchValue({ file: fileName });
+  }
+  public redirectToGrievanceQuery(): void {
+    this.router.navigateByUrl("/grievance-query");
   }
 }

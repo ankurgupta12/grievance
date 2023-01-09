@@ -12,12 +12,14 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { GrievanceSubmitComponent } from './components/grievance-submit/grievance-submit.component';
 import { MatSelectModule } from '@angular/material/select';
+import { QueryResponseComponent } from './components/query-response/query-response.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     GrievanceFormComponent,
-    GrievanceSubmitComponent
+    GrievanceSubmitComponent,
+    QueryResponseComponent
   ],
   imports: [
     BrowserModule,
