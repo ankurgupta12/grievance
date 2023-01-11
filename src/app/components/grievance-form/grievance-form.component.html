@@ -1,185 +1,132 @@
-<header class="header-text">GRIEVANCE SUBMISSION</header>
-<div class="container" *ngIf="!isSubmit else codeTemplate">
-  <span>Please enter the details below to register your grievance</span>
-  <form [formGroup]="grivanceForm" (ngSubmit)="submitForm()">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="form-group row">
-          <label class="col-md-4 col-form-label">Complainant Name*</label>
-          <div class="col-md-8 align-items-center d-flex">
-            <mat-form-field  class="form-field">
-              <input
-                matInput
-                formControlName="cName"
-                [maxLength]="150"
-                autocomplete="off"
-                name="cName"
-                placeholder="Enter"
-              />
-              <mat-error
-              *ngIf="
-                
-                grivanceForm.get('cName').errors?.required
-              "
-            >
-              <span>Invalid Entry</span>
-            </mat-error>
-            </mat-form-field>
-
-            <!-- *ngIf="saveCriteriaForm.get('searchName').errors?.maxlength"  -->
-          
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="form-group row">
-          <label class="col-md-4 col-form-label">Complainant IEC Number</label>
-          <div class="col-md-8 align-items-center d-flex">
-            <mat-form-field  class="form-field">
-              <input
-                matInput
-                type="number"
-                formControlName="iecNumber"
-                [maxLength]="150"
-                autocomplete="off"
-                name="cName"
-                placeholder="Enter"
-              />
-            </mat-form-field>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="form-group row">
-          <label class="col-md-4 col-form-label"
-            >Complainant Company Name</label
-          >
-          <div class="col-md-8 align-items-center d-flex">
-            <mat-form-field  class="form-field">
-              <input
-                matInput
-                formControlName="companyName"
-                [maxLength]="150"
-                autocomplete="off"
-                name="cName"
-                placeholder="Enter"
-              />
-            </mat-form-field>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="form-group row">
-          <label class="col-md-4 col-form-label">Complainant Email*</label>
-          <div class="col-md-8 align-items-center d-flex">
-            <mat-form-field class="form-field">
-              <input
-                matInput
-                type="email"
-                formControlName="email"
-                [maxLength]="150"
-                autocomplete="off"
-                name="email"
-                placeholder="Enter"
-              />
-              <mat-error
-              *ngIf="grivanceForm.get('email').errors?.required
-              "
-            >
-              <span>Invalid Entry</span>
-            </mat-error>
-            <mat-error
-            *ngIf="grivanceForm.get('email').errors?.email
-            "
-          >
-            <span>Invalid Entry</span>
-          </mat-error>
-            </mat-form-field>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="form-group row">
-          <label class="col-md-4 col-form-label">Complainant Mobile*</label>
-          <div class="col-md-8 align-items-center d-flex">
-            <mat-form-field  class="form-field">
-              <input
-                matInput
-                type="tel"
-                formControlName="mobileNumber"
-                [minLength]="10"
-                [maxLength]="10"
-                autocomplete="off"
-                placeholder="Enter 10 digit"
-                name="cName"
-              />
-              <mat-error
-              *ngIf="grivanceForm.get('mobileNumber').errors?.required
-              "
-            >
-              <span>Invalid Entry</span>
-            </mat-error>
-            <mat-error
-            *ngIf="grivanceForm.get('mobileNumber').errors?.pattern
-            "
-          >
-            <span>Invalid Entry</span>
-          </mat-error>
-            </mat-form-field>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button  class="btn-submit-form" mat-flat-button color="primary">GET VERIFICATION CODE</button>
-  </form>
-</div>
-<ng-template #codeTemplate>
-  <span>Please enter your verification code to submit grievance</span>
-  <form >
+<div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <div class="form-group row">
-        <label class="col-md-4 col-form-label">Enter Verification Code*</label>
-        <div class="col-md-8 align-items-center d-flex">
-          <mat-form-field  class="form-field">
-            <input
-              matInput
-              [maxLength]="6"
-              [minLength]="6"
-              [formControl]="verficationForm"
-              autocomplete="off"
-              name="cName"
-              placeholder="Enter 6 Digit Code"
-            />
-            <mat-error *ngIf="verficationForm.hasError('required') && !verficationForm.hasError('maxLength')">
-            Invalid Entry
-            </mat-error>
-              <mat-error *ngIf="verficationForm.hasError('minlength')">
-              Invalid Entry
-              </mat-error>
-            <mat-error *ngIf="verficationForm.hasError('required')">
-              Invalid Entry
-            </mat-error>
-          
-          </mat-form-field>
-        
-          <!-- *ngIf="saveCriteriaForm.get('searchName').errors?.maxlength"  -->
-        
-        </div>
-        <button  class="col-md-8 btn-submit-form" mat-flat-button color="primary">RESEND VERIFICATION CODE</button>
-      </div>
-     
-    </div>
-  
+    <h1 class="text-center header-text">GRIEVANCE SUBMISSION </h1>
   </div>
-  <button  class="btn-submit-form" mat-flat-button color="primary" (click)="redirectToSubmitGrievance()">SUBMIT</button>
-  </form>
+</div>
+
+<div class="container" *ngIf="!isSubmit else codeTemplate">
+  <div class="lightbox">
+    <p class="lightbox-title"><strong>Please enter the details below to register your grievance </strong>
+    </p>
+    <form [formGroup]="grivanceForm" (ngSubmit)="submitForm()">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group row">
+            <label class="col-md-4 col-form-label">Complainant Name*</label>
+            <div class="col-md-8 align-items-center d-flex">
+              <mat-form-field class="form-field">
+                <input matInput formControlName="cName" [maxLength]="150" autocomplete="off" name="cName"
+                  placeholder="Enter" />
+                <mat-error *ngIf=" grivanceForm.get('cName').errors?.required">
+                  <span>Invalid Entry</span>
+                </mat-error>
+              </mat-form-field>
+              <!-- *ngIf="saveCriteriaForm.get('searchName').errors?.maxlength"  -->
+            </div>
+          </div>
+          <!-- IEC Number -->
+          <div class="form-group row">
+            <label class="col-md-4 col-form-label">Complainant IEC Number</label>
+            <div class="col-md-8 align-items-center d-flex">
+              <mat-form-field class="form-field">
+                <input matInput type="number" formControlName="iecNumber" [maxLength]="150" autocomplete="off"
+                  name="cName" placeholder="Enter" />
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- company Name -->
+          <div class="form-group row">
+            <label class="col-md-4 col-form-label">Complainant Company Name</label>
+            <div class="col-md-8 align-items-center d-flex">
+              <mat-form-field class="form-field">
+                <input matInput formControlName="companyName" [maxLength]="150" autocomplete="off" name="cName"
+                  placeholder="Enter" />
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Email Field -->
+          <div class="form-group row">
+            <label class="col-md-4 col-form-label">Complainant Email*</label>
+            <div class="col-md-8 align-items-center d-flex">
+              <mat-form-field class="form-field">
+                <input matInput type="email" formControlName="email" [maxLength]="150" autocomplete="off" name="email"
+                  placeholder="Enter" />
+                <mat-error *ngIf="grivanceForm.get('email').errors?.required">
+                  <span>Invalid Entry</span>
+                </mat-error>
+                <mat-error *ngIf="grivanceForm.get('email').errors?.email">
+                  <span>Invalid Entry</span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- Mobile Field -->
+          <div class="form-group row">
+            <label class="col-md-4 col-form-label">Complainant Mobile*</label>
+            <div class="col-md-8 align-items-center d-flex">
+              <mat-form-field class="form-field">
+                <input matInput type="tel" formControlName="mobileNumber" [minLength]="10" [maxLength]="10"
+                  autocomplete="off" placeholder="Enter 10 digit" name="cName" />
+                <mat-error *ngIf="grivanceForm.get('mobileNumber').errors?.required">
+                  <span>Invalid Entry</span>
+                </mat-error>
+                <mat-error *ngIf="grivanceForm.get('mobileNumber').errors?.pattern">
+                  <span>Invalid Entry</span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- verification code button -->
+          <button class="btn-submit-form" mat-flat-button color="primary">GET VERIFICATION CODE</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<ng-template #codeTemplate>
+  <div class="container">
+    <div class="lightbox">
+      <p class="lightbox-title"><strong>Please enter your verification code to submit grievance </strong>
+      </p>
+      <form>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group row">
+              <label class="col-md-4 col-form-label">Enter Verification Code*</label>
+              <div class="col-md-8 align-items-center2 d-flex2">
+                <div>
+                  <mat-form-field class="form-field">
+                    <input matInput [maxLength]="6" [minLength]="6" [formControl]="verficationForm" autocomplete="off"
+                      name="cName" placeholder="Enter 6 Digit Code" />
+                    <mat-error *ngIf="verficationForm.hasError('required') && !verficationForm.hasError('maxLength')">
+                      Invalid Entry
+                    </mat-error>
+                    <mat-error *ngIf="verficationForm.hasError('minlength')">
+                      Invalid Entry
+                    </mat-error>
+                    <mat-error *ngIf="verficationForm.hasError('required')">
+                      Invalid Entry
+                    </mat-error>
+
+                  </mat-form-field>
+                </div>
+                <!-- *ngIf="saveCriteriaForm.get('searchName').errors?.maxlength"  -->
+                <button class="btn-submit mt-3" mat-flat-button color="primary">RESEND VERIFICATION CODE</button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+        <button class="btn-submit-form bottom-right" mat-flat-button color="primary"
+          (click)="redirectToSubmitGrievance()">SUBMIT</button>
+      </form>
+    </div>
+  </div>
+  <!-- <span>Please enter your verification code to submit grievance</span> -->
+
 </ng-template>

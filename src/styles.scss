@@ -59,6 +59,27 @@ $grievance-theme: mat-light-theme($grievance-primary,
 /*Custom input css*/
 
 
+strong {
+  font-weight: 500;
+}
+
+/*Custom input css*/
+
+
+.lightbox {
+  padding: 0px 20px;
+  background-color: rgb(45 174 61 / 13%);
+  min-height: 400px;
+  position: relative;
+}
+
+.lightbox-title {
+  font-size: 16px;
+  padding: 10px 0;
+  margin: 0 0 10px 0;
+}
+
+
 
 .btn-submit {
   border-radius: 20px !important;
@@ -102,4 +123,5 @@ body {
   float: right;
   border: 1px solid #255789 !important;
   border-radius: 5px !important;
+  margin: 0 0 20px 0 !important;
 }
