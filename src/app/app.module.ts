@@ -13,6 +13,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { GrievanceSubmitComponent } from './components/grievance-submit/grievance-submit.component';
 import { MatSelectModule } from '@angular/material/select';
 import { QueryResponseComponent } from './components/query-response/query-response.component';
+import { HttpClientModule } from  '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { QueryResponseComponent } from './components/query-response/query-respon
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,

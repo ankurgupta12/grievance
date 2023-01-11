@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 @Component({
   selector: "app-grievance-form",
   templateUrl: "./grievance-form.component.html",
-  styleUrls: ["./grievance-form.component.scss"],
+  styleUrls: ["./grievance-form.component.scss"]
 })
 export class GrievanceFormComponent implements OnInit {
   public grivanceForm: FormGroup;
@@ -36,7 +36,7 @@ export class GrievanceFormComponent implements OnInit {
       ]),
     });
   }
-  
+
   public submitForm(): void {
     this.isSubmit = true;
     if (this.grivanceForm.valid) {
@@ -46,7 +46,7 @@ export class GrievanceFormComponent implements OnInit {
   }
 
   public redirectToSubmitGrievance(): void {
-    this.verficationForm.valid && 
-    this.router.navigateByUrl('/grievance-submit')
+    this.verficationForm.valid &&
+      this.router.navigateByUrl("/grievance-submit");
   }
 }

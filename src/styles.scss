@@ -18,11 +18,9 @@ $grievance-accent: mat-palette($mat-pink, A200, A100, A400);
 $grievance-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$grievance-theme: mat-light-theme(
-  $grievance-primary,
-  $grievance-accent,
-  $grievance-warn
-);
+$grievance-theme: mat-light-theme($grievance-primary,
+    $grievance-accent,
+    $grievance-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -32,6 +30,36 @@ $grievance-theme: mat-light-theme(
 /* You can add global styles to this file, and also import other style files */
 @import "./assets/variable.scss";
 
+/*Custom input css*/
+.flex-element {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-sb {
+  justify-content: space-between;
+}
+
+.flex-sa {
+  justify-content: space-around;
+}
+
+.flex-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/*Custom input css*/
+
+
+
 .btn-submit {
   border-radius: 20px !important;
   border-color: transparent !important;
@@ -39,17 +67,20 @@ $grievance-theme: mat-light-theme(
   height: 48px !important;
   color: $black !important;
 }
+
 .header-text {
-  text-align: center;
   font-family: $gothamNarrowMedium;
   color: $textBlue;
   font-weight: 700;
   font-size: 30px;
+  padding: 10px 0;
 }
+
 input::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: $blue;
-  opacity: 1; /* Firefox */
+  opacity: 1;
+  /* Firefox */
   text-align: center;
 }
 
@@ -57,6 +88,7 @@ html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -65,6 +97,7 @@ body {
 .form-field {
   width: 11.5rem;
 }
+
 .btn-submit-form {
   float: right;
   border: 1px solid #255789 !important;
