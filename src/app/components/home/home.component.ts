@@ -12,7 +12,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  public login() {
+    this.router.navigate(["login"])
+  }
   public navigateToSubmissionForm() :void {
     this.router.navigateByUrl("/grievance-form")
   }

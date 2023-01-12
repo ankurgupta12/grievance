@@ -1,0 +1,18 @@
+<mat-sidenav-container class="example-container" >
+    <mat-sidenav class="side-nav" #sidenav mode="side" opened="true"
+                 >
+     <mat-list>
+        <div *ngFor="let section of defaultSections">
+            <mat-list-item [routerLink]="'grievance-form'">{{section.name}}</mat-list-item>
+        </div>
+    </mat-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+        <img src="../../../../assets/header.webp.webp">
+        <div class="content" fxLayout="column" fxFlex>
+            <router-outlet></router-outlet>
+          </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

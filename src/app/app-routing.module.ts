@@ -3,7 +3,9 @@ import { Routes, RouterModule } from "@angular/router";
 import { GrievanceFormComponent } from "./components/grievance-form/grievance-form.component";
 import { GrievanceSubmitComponent } from "./components/grievance-submit/grievance-submit.component";
 import { HomeComponent } from "./components/home/home.component";
+import { LoginComponent } from "./components/login/login.component";
 import { QueryResponseComponent } from "./components/query-response/query-response.component";
+import { MainComponent } from "./shared/components/main/main.component";
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -12,7 +14,15 @@ const routes: Routes = [
     component: GrievanceFormComponent,
   },
   { path: "grievance-submit", component: GrievanceSubmitComponent },
-  {path:"grievance-query",component:QueryResponseComponent},
+  { path: "grievance-query", component: QueryResponseComponent },
+  { path: "main", component: MainComponent,  children: [
+    {
+      path: "grievance-form",
+      component: GrievanceFormComponent,
+      data:{isShow:true}
+    },
+  ] },
+  { path: "login", component: LoginComponent },
   {
     path: "",
     pathMatch: "full",

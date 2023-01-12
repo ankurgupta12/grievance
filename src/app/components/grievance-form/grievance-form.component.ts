@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { GrievanceFormService } from "src/app/services/grievance-form.service";
 import { finalize, take, takeUntil, tap } from "rxjs/operators";
 import { Subject } from "rxjs";
@@ -25,13 +25,19 @@ export class GrievanceFormComponent implements OnInit {
     Validators.maxLength(6),
     Validators.minLength(6),
   ]);
+  public isShow: boolean;
   constructor(
     public fb: FormBuilder,
     public router: Router,
-    public grievanceFormService: GrievanceFormService
+    public grievanceFormService: GrievanceFormService,
+    public activatedRoute:ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    this.activatedRoute.data.subscribe((data)=>{
+      console.log(data);
+      this.isShow = data.isShow;
+    });
     this.grivanceForm = new FormGroup({
       cName: new FormControl(null, [Validators.required]),
       iecNumber: new FormControl(null),
@@ -43,6 +49,7 @@ export class GrievanceFormComponent implements OnInit {
         Validators.maxLength(10),
         Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"),
       ]),
+      details:new FormControl()
     });
   }
 
