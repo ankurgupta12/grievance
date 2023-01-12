@@ -64,7 +64,14 @@ strong {
 }
 
 /*Custom input css*/
+.header-img {
+  height: 120px;
+}
 
+.header-img img {
+  height: 100%;
+  width: 100%;
+}
 
 .lightbox {
   padding: 0px 20px;
@@ -77,6 +84,13 @@ strong {
   font-size: 16px;
   padding: 10px 0;
   margin: 0 0 10px 0;
+}
+
+.section-head-txt {
+  font-size: 20px;
+  padding: 15px 0;
+  margin: 0 0 10px 0;
+  font-weight: 500;
 }
 
 
@@ -114,6 +128,40 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.page-body {
+  width: 100%;
+  display: inline-flex;
+  background-color: rgba(45, 174, 61, 0.13);
+  position: relative;
+  height: 80vh;
+
+}
+
+.page-hdr {
+  font-family: "Gotham Narrow Medium", Arial, Helvetica, sans-serif;
+  color: #255789;
+  font-weight: 700;
+  font-size: 30px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.nav-col {
+  width: 220px;
+  background-color: #08325b;
+
+}
+
+.mat-list-base .mat-list-item {
+  color: #fff;
+}
+
+.main-contain-page {
+  width: calc(100% - 220px);
+}
+
+
 
 .form-field {
   width: 11.5rem;
