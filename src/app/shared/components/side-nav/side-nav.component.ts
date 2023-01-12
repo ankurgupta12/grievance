@@ -9,18 +9,18 @@ export class SideNavComponent implements OnInit {
   events: string[] = [];
   defaultSections = [
     {
-      id: 1, name: 'NEW GRIEVANCE' 
+      routerLink: 'grievance-form', name: 'NEW GRIEVANCE' 
     },
     {
-      id: 2, name: 'VIEW GRIEVANCE' 
+      routerLink: 'grievance-form', name: 'VIEW GRIEVANCE' 
     },
     {
-      id: 3, name: 'GRIEVANCE MIS' 
+      routerLink: 'grievance-form', name: 'GRIEVANCE MIS' 
     },{
-      id: 4, name: 'FAQ' 
+      routerLink: 'grievance-form', name: 'FAQ' 
     },
     {
-      id: 5, name: 'ADMIN' 
+      routerLink: 'grievance-form', name: 'ADMIN' 
     }
 
 

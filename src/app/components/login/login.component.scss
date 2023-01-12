@@ -1,0 +1,14 @@
+@import '../../../assets/variable.scss';
+.form-center {
+    display:flex;
+    justify-content: center;
+}
+.form-field {
+    width: 22.5rem;
+}
+.btn-login {
+    width: 11rem;
+}
+.bg-color {
+    background-color: $lightSkyBlue !important;
+}

@@ -1,2 +1,80 @@
-<p>login works!</p>
-<a routerLink="/main"> Enter</a>
+<div class="container">
+  <div class="lightbox">
+    <div class="container">
+      <div class="row">
+        <h1 class="text-center header-text">GRIEVANCE REDRESSAL PORTAL</h1>
+      </div>
+    </div>
+    <div class="form-center">
+      <form>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group row">
+              <div class="col-md-12 align-items-center2 d-flex2">
+                <div>
+                  <mat-form-field class="form-field">
+                    <input
+                      matInput
+                      autocomplete="off"
+                      name="cName"
+                      placeholder="SSO USERNAME"
+                    />
+                    <!-- <mat-error *ngIf="verficationForm.hasError('required') && !verficationForm.hasError('maxLength')">
+                      Invalid Entry
+                    </mat-error>
+                    <mat-error *ngIf="verficationForm.hasError('minlength')">
+                      Invalid Entry
+                    </mat-error>
+                    <mat-error *ngIf="verficationForm.hasError('required')">
+                      Invalid Entry
+                    </mat-error> -->
+                  </mat-form-field>
+                </div>
+                <!-- *ngIf="saveCriteriaForm.get('searchName').errors?.maxlength"  -->
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-md-12 align-items-center2 d-flex2">
+                <div>
+                  <mat-form-field class="form-field">
+                    <input
+                      matInput
+                      autocomplete="off"
+                      name="cName"
+                      placeholder="PASSWORD"
+                    />
+                    <!-- <mat-error *ngIf="verficationForm.hasError('required') && !verficationForm.hasError('maxLength')">
+                        Invalid Entry
+                      </mat-error>
+                      <mat-error *ngIf="verficationForm.hasError('minlength')">
+                        Invalid Entry
+                      </mat-error>
+                      <mat-error *ngIf="verficationForm.hasError('required')">
+                        Invalid Entry
+                      </mat-error> -->
+                  </mat-form-field>
+                </div>
+                <!-- *ngIf="saveCriteriaForm.get('searchName').errors?.maxlength"  -->
+              
+              </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                  <div class="col text-center">
+                    <button class="btn  mt-3 btn-primary btn-submit btn-login"(click)="login()">Login</button>
+                  </div>
+                  
+                </div>
+                <div class="row">
+                    <div class="col text-center">
+                      <button class="btn  mt-3 btn-primary btn-submit btn-login bg-color">Forgot Password ?</button>
+                    </div>
+                    
+                  </div>
+              </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

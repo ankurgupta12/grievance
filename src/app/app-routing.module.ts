@@ -17,6 +17,11 @@ const routes: Routes = [
   { path: "grievance-query", component: QueryResponseComponent },
   { path: "main", component: MainComponent,  children: [
     {
+      path: "",
+      pathMatch: "full",
+      redirectTo: "grievance-form",
+    },
+    {
       path: "grievance-form",
       component: GrievanceFormComponent,
       data:{isShow:true}

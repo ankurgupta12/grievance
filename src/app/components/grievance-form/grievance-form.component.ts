@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import {
+  FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -49,7 +50,9 @@ export class GrievanceFormComponent implements OnInit {
         Validators.maxLength(10),
         Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"),
       ]),
-      details:new FormControl()
+      details:new FormControl(),
+      category:new FormControl(),
+      docs: this.fb.array([{ file: [""] }]),
     });
   }
 
@@ -77,6 +80,20 @@ export class GrievanceFormComponent implements OnInit {
         .subscribe(() => {});
       console.log(this.grivanceForm.value);
     }
+  }
+  get docs() {
+    return this.grivanceForm.controls["docs"] as FormArray;
+  }
+  public addDoc(): void {
+    const docForm = this.fb.group({
+      file: ["",Validators.required],
+    });
+    this.docs.push(docForm);
+  }
+
+  public upload(event: any, index?: number): void {
+    let fileName = event.target.files[0].name;
+    this.docs.controls[index].patchValue({ file: fileName });
   }
 
   public redirectToSubmitGrievance(): void {
