@@ -14,17 +14,22 @@ import { GrievanceSubmitComponent } from './components/grievance-submit/grievanc
 import { MatSelectModule } from '@angular/material/select';
 import { QueryResponseComponent } from './components/query-response/query-response.component';
 import { HttpClientModule } from  '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './components/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     GrievanceFormComponent,
     GrievanceSubmitComponent,
-    QueryResponseComponent
+    QueryResponseComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SharedModule,
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -34,7 +39,9 @@ import { HttpClientModule } from  '@angular/common/http';
     MatButtonModule,
     MatSelectModule
   ],
-  providers: [],
+  providers: [ {
+    provide: "BASE_API_URL", useValue: environment.apiUrl
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

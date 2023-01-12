@@ -5,6 +5,7 @@
 </div>
 
 <div class="container" *ngIf="!isSubmit else codeTemplate">
+  <app-loader *ngIf="true"></app-loader>
   <div class="lightbox">
     <p class="lightbox-title"><strong>Please enter the details below to register your grievance </strong>
     </p>
