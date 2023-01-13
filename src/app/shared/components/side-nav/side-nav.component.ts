@@ -12,7 +12,7 @@ export class SideNavComponent implements OnInit {
       routerLink: 'grievance-form', name: 'NEW GRIEVANCE' 
     },
     {
-      routerLink: 'grievance-form', name: 'VIEW GRIEVANCE' 
+      routerLink: 'view-grievance', name: 'VIEW GRIEVANCE' 
     },
     {
       routerLink: 'grievance-form', name: 'GRIEVANCE MIS' 

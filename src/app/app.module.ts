@@ -17,6 +17,7 @@ import { HttpClientModule } from  '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './components/login/login.component';
+import { ViewGrievanceComponent } from './components/view-grievance/view-grievance.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { LoginComponent } from './components/login/login.component';
     GrievanceSubmitComponent,
     QueryResponseComponent,
     LoginComponent,
+    ViewGrievanceComponent,
   ],
   imports: [
     BrowserModule,
