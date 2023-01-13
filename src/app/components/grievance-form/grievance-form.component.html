@@ -1,19 +1,17 @@
 <div class="container">
   <div class="row">
-    <h1 class="text-center header-text">{{ isShow ? 'GRIEVANCE REDRESSAL':'GRIEVANCE SUBMISSION' }}</h1>
+    <h1  *ngIf="!isShow"class="text-center header-text">GRIEVANCE SUBMISSION</h1>
   </div>
 </div>
 
 <div class="container" *ngIf="!isSubmit else codeTemplate">
-  <app-loader *ngIf="true"></app-loader>
-  <div class="lightbox">
-    <p *ngIf="isShow;else grievanceData"class="lightbox-title"><strong>Register New Grievance Received Via Phone or Email</strong>
+  <app-loader *ngIf="showLoader"></app-loader>
+  <div  [ngClass]="isShow?'':'lightbox'">
+    <p *ngIf="!isShow"class="lightbox-title"><strong>Please enter the details below to register your grievance</strong>
     </p>
-    <ng-template #grievanceData>
-      <p class="lightbox-title"><strong>Please enter the details below to register your grievance </strong>
-      </p>
-  
-    </ng-template>
+    <p *ngIf="isShow"class="lightbox-title"><strong>Register New Grievance Received Via Phone or Email</strong>
+    </p>
+    
    
     <form [formGroup]="grivanceForm" (ngSubmit)="submitForm()">
       <div class="row">
@@ -123,7 +121,7 @@
               </div>
               <button  *ngIf="isShow" class="btn-submit-form" style="float: left;" mat-flat-button (click)="addDoc()" color="primary">+ Add Entry</button>
           <!-- verification code button -->
-          <button class="btn-submit-form" mat-flat-button color="primary">{{ isShow ? 'SUBMIT GRIEVANCE':'GET VERIFICATION CODE'}}</button>
+          <button class="btn-submit-form mb-1" mat-flat-button color="primary">{{ isShow ? 'SUBMIT GRIEVANCE':'GET VERIFICATION CODE'}}</button>
         </div>
       </div>
     </form>

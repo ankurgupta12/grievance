@@ -36,8 +36,9 @@ export class GrievanceFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe((data)=>{
-      console.log(data);
+    
       this.isShow = data.isShow;
+      console.log(this.isShow);
     });
     this.grivanceForm = new FormGroup({
       cName: new FormControl(null, [Validators.required]),

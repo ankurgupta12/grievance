@@ -1,15 +1,21 @@
-<mat-sidenav-container class="example-container" >
-    <mat-sidenav class="side-nav" #sidenav mode="side" opened="true">
-     <mat-list>
-        <div *ngFor="let section of defaultSections">
-            <mat-list-item [routerLink]="section.routerLink">{{section.name}}</mat-list-item>
-        </div>
-    </mat-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-         <img src="../../../../assets/header.webp.webp">
-        <div class="content" fxLayout="column" fxFlex>
-            <router-outlet></router-outlet>
-        </div>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+
+<div class="container">
+    <h2 class="page-hdr">GRIEVANCE REDRESSAL</h2>
+    <section class="page-body">
+        <nav class="nav-col">
+            <mat-sidenav class="side-nav" #sidenav mode="side" opened="true">
+                <mat-list>
+                    <div *ngFor="let section of defaultSections">
+                        <mat-list-item [routerLink]="section.routerLink">{{section.name}}</mat-list-item>
+                    </div>
+                </mat-list>
+            </mat-sidenav>
+        </nav>
+        <section class="main-contain-page">
+            <!-- <div class="container"> -->
+                <!-- <p class="section-head-txt">Register New Grievance Received Via Phone or Email </p> -->
+                <router-outlet></router-outlet>
+            <!-- </div> -->
+        </section>
+    </section>
+</div>
