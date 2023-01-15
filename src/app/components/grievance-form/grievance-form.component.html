@@ -108,16 +108,26 @@
               <div  *ngIf="isShow"class="form-group row">
                 <label class="col-md-4 col-form-label">Upload Document</label>
                 
-                <div class="col-md-3 align-items-center d-flex ">
-                  
-                    <input
-                    formControlName="responseLetter"
-                    type="file"
-                    (change)="upload($event)"
-                    accept=".pdf"
-                    class="form-control"
-                  />
-                </div>
+                <ng-container formArrayName="docs">
+                  <div  class=" col-md-8 align-items-center d-flex">
+                  <ul>
+                        <ng-container *ngFor="let doc of docs.controls; let i = index">
+                          <li [formGroupName]="i" >
+                           
+                        
+                              <input
+                                type="file"
+                                (change)="upload($event, i)"
+                                accept=".pdf"
+                                class="form-control"
+                              />
+                            
+                           
+                          </li>
+                        </ng-container>
+                      </ul>
+                    </div>
+                      </ng-container>
               </div>
               <button  *ngIf="isShow" class="btn-submit-form" style="float: left;" mat-flat-button (click)="addDoc()" color="primary">+ Add Entry</button>
           <!-- verification code button -->
