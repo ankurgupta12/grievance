@@ -127,6 +127,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow: hidden;
 }
 
 .page-body {
@@ -147,8 +148,14 @@ body {
 }
 
 .nav-col {
-  width: 220px;
+  // width: 220px;
   background-color: #08325b;
+  position: fixed;
+  z-index: 2;
+  width: 260px;
+  height: 100%;
+  // background: #fff;
+  box-shadow: 0 16px 38px -12px rgb(0 0 0 / 56%), 0 4px 25px 0 rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
 
 }
 
@@ -158,9 +165,28 @@ body {
 
 .main-contain-page {
   width: calc(100% - 220px);
-  padding: 0 1.5rem
+  padding: 0 1.5rem;
+  overflow-y: scroll;
+  margin-left: 26%;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+  background-color: lightblue;
+  height: 4px;              /* height of horizontal scrollbar ← You're missing this */             /* width of vertical scrollbar */
+  border: 1px solid #d5d5d5;
+
+	// background-color: #F5F5F5;
+}
 
 
 .form-field {
